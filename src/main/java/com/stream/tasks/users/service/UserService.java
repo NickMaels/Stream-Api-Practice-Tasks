@@ -25,7 +25,7 @@ public class UserService {
     //Should sort given list of user by age descending and name ascending. Lvl: Medium
     public List<User> sortByAgeDescAndNameAsc(final List<User> users) {
         return users.stream()
-                .sorted(Comparator.comparing(User::getFirstName).thenComparing(Comparator.comparing(User::getAge).reversed()))
+                .sorted(Comparator.comparing(User::getAge).reversed().thenComparing(User::getFirstName))
                 .collect(Collectors.toList());
     }
 
